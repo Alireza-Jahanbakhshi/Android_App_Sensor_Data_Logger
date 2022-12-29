@@ -1,79 +1,45 @@
 
-# CAFE SKU (Full App) kotlin
+# App Sensor Data Logger
 
-## MVVM+ParseSDK+Room+Retrofit+KotlinCoroutines+NavigationComponent+Glide 
+## Esp8266 + Android Networking + Lottie
 
 ![Basic](./images/1.jpg)
-
-> ##  Download .apk file = https://cafebazaar.ir/app/com.ahm.sku
-
----
-
-### Table of Contents
-
-- [Description](#description)
-- [packages and folders in project](#packages-and-folders-in-project)
-- [Libraries Used](#Libraries-Used)
-- [License](#license)
-- [Author Info](#author-info)
 
 ---
 
 ## Description
 
-This app is a complete open source app that has been created for new students entering Shahrekord University. 
+Just Another Android app that reads and displays sensor information from the server.
 
-By installing this app, you will be completely familiar with Shahrekord University.
+When you log in, it takes your IP address and connects to port 80 and can read and display information from the Django server or Esp8266 or any other server by the IP address of that server.
 
-This project is written in MMVM architecture and by downloading it, you can help your scientific level
+In fact, this app reads a packet of information from the server and decodes it and shows it. 
+The format of the read packet along with its description is placed at the bottom of this page.
 
-[Go To Top](#CAFE-SKU-(Full-App)-kotlin)
+The app updates the information from the server in two-second intervals so that we always have up-to-date information!
+In the release section, you can download and install the latest debug version of the program for testing from right part of this page.
 
----
-
-## packages and folders in project
-
-- ui -> contains Ativities and Fragments + ViewModels and ViewModelFactories
-- model -> contains Repository + DataBase + ApiService
-- customView -> contains Google Play ProductView ()
-- receiver -> contains BroadCastReceivers for Notifications
-- di -> contains Koin dependency injection
-- ext -> contains some extra codes for project!
-- androidWrapper -> contains Application Class for some library inits  
-
-[Go To Top](#CAFE-SKU-(Full-App)-kotlin)
+working on Androi +5
 
 ---
 
-## Libraries Used
+## Format Packet
+| 0 | / | R | / | G | / | B | / | EpochTime | / | temp | / | hu | / | RED | / | GREEN | / | BLUE | / | SpeakerVolume |
+|---|---|---|---|---|---|---|---|----------------------------|---|------|---|----|---|-----|---|-------|---|------|---|---------------|
 
-- ProductView (GooglePlay AppView) https://github.com/amir00462/ProductView-GooglePlayAppView-MaterialDesign
-- Parse Platform (ParseSDK) https://parseplatform.org/
-- Navigation Component https://developer.android.com/guide/navigation
-- LifeCycle and LiveData https://developer.android.com/jetpack/androidx/releases/lifecycle
-- Material EditText https://github.com/rengwuxian/MaterialEditText
-- Room DataBase https://developer.android.com/topic/libraries/architecture/room
-- Koltin Coroutine https://github.com/Kotlin/kotlinx.coroutines
-- Koin Dependency Injection https://github.com/InsertKoinIO/koin
-- Retrofit https://square.github.io/retrofit/
-- Loading Button https://github.com/leandroBorgesFerreira/LoadingButtonAndroid
-- Sweet Alert Dialog https://github.com/pedant/sweet-alert-dialog
-- Lottie (animations) https://github.com/airbnb/lottie-android
-- Glide https://github.com/bumptech/glide
-- SliderView Glide https://github.com/firdausmaulan/GlideSlider
-- stfalcon ImageView https://github.com/stfalcon-studio/StfalconImageViewer
+---
 
-[Go To Top](#CAFE-SKU-(Full-App)-kotlin)
+## Important methods in project
 
+- getDataFromEsp() -> Request for new packet from server
+- resolvePacket() -> Decode packet and show data in app
+- startAutomaticUpdating() -> update packet from server every 2 seconds
+- normalizeNumber() -> normalize rgb (0-255) values from packet to (0-1) values to creae a Color and show in app
+ 
 ---
 
 ## Author Info
 - Amir HOSSEIN MOHAMMADI
-- LinkedIn - [@amir00462](https://www.linkedin.com/in/amir-hossein-mohammadi-a1b5a21ba/)
-- Instagram - [@amir00462](https://www.instagram.com/amir00462/)
+- Instagram - [@dunijet](https://www.instagram.com/dunijet/)
 - GitHub - [@amir00462](https://github.com/amir00462)
-- StackOverFlow - [@amir00462](https://stackoverflow.com/users/12779514/amir00462)
 - E-mail - amir00462@gmail.com
-- Poonisha Freelancer - [@amir00462](https://ponisha.ir/profile/amir00462/portfolios/tag/github)
-
-[Go To Top](#CAFE-SKU-(Full-App)-kotlin)
