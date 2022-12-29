@@ -3,7 +3,7 @@
 
 ## Esp8266 + Android Networking + Lottie
 
-![Basic](./test.jpg)
+![Basic](./test.png)
 
 ---
 
